@@ -50,8 +50,10 @@ app.enable("view cache");
 app.set("layout", "layouts/main");
 app.set("layout extractScripts", true);
 app.set("views", path_1.default.join(__dirname, "views"));
-app.use((0, serve_favicon_1.default)(path_1.default.join(__dirname, "../public", "favicon.ico")));
-app.use("/public", express_1.default.static(path_1.default.join(__dirname, "../public")));
+// app.use(favicon(path.join(__dirname, "../public", "favicon.ico")));
+app.use((0, serve_favicon_1.default)(path_1.default.join(__dirname, "../public/favicon.ico")));
+// app.use("/public", express.static(path.join(__dirname, "../public")));
+app.use(express_1.default.static(path_1.default.join(__dirname, "../public")));
 // node_modules\@popperjs\core\dist\umd
 app.use("/static/popperjs", express_1.default.static(path_1.default.join(__dirname, "../node_modules/@popperjs/core/dist/umd")));
 // node_modules\bootstrap-icons\font\bootstrap-icons.css
