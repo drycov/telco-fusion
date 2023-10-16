@@ -1,10 +1,6 @@
 {
-  "labelLogin": "Вход",
-  "labelUsername": "Имя пользователя",
-  "labelPassword": "Пароль",
-  "labelRemember": "Запомнить меня",
   "sidebarLabel": {
-    "labelReports":"Отчеты",
+    "labelReports": "Отчеты",
     "labelPorts": "Порты",
     "labelSOA": "Заявление о точности",
     "LabelTPC": "Емкость портов",
@@ -20,10 +16,17 @@
     "labelSIP": "SIP",
     "labelTDM": "TDM"
   },
-  "constLabels":{
-    "report":"Отчет"
+  "constLabels": {
+    "report": "Отчет"
   },
-  "labelLoginInfo": "Войдите в систему, чтобы начать сеанс",
+  "loginPage": {
+    "labelLogin": "Вход",
+    "labelUsername": "Имя пользователя",
+    "labelPassword": "Пароль",
+    "labelRemember": "Запомнить меня",
+    "labelLoginInfo": "Войдите в систему, чтобы начать сеанс",
+    "labelForgot": "Забыли пароль?"
+  },
   "appName": "ТТС ХМ",
   "welcomeMessage": "Добро пожаловать на наш сайт!",
   "greeting": "Здравствуйте, {{name}}!",
