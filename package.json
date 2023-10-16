@@ -29,6 +29,7 @@
     "@types/express-ejs-layouts": "^2.5.2",
     "@types/express-session": "^1.17.8",
     "@types/express-useragent": "^1.0.3",
+    "@types/jsonwebtoken": "^9.0.3",
     "@types/node": "^20.8.6",
     "@types/serve-favicon": "^2.5.5",
     "@types/winston": "^2.4.4",

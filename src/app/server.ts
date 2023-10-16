@@ -21,6 +21,7 @@ import removeCommentsMiddleware from "./middlewares/removeCommentsMiddleware";
 import router from "./router";
 
 const app = express();
+app.use(compression());
 
 i18next
   .use(Backend)
@@ -108,7 +109,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(removeCommentsMiddleware);
 
-app.use(compression());
 app.use(useragent.express());
 
 app.use(loggerMiddleware);
