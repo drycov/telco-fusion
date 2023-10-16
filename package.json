@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "start:prod": "cross-env APP_TYPE=PROD node --no-warnings --loader ts-node/esm index.ts",
-    "start": "node --no-warnings --loader ts-node/esm ./dist/index.js",
+    "start": "nodemon index.ts",
+    "start:two": "node --no-warnings --loader ts-node/esm ./dist/index.js",
     "start:dev": "cross-env APP_TYPE=DEV node --trace-warnings --loader ts-node/esm index.ts",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
