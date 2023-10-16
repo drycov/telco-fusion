@@ -54,52 +54,52 @@ app.enable("view cache");
 app.set("layout", "layouts/main");
 app.set("layout extractScripts", true);
 app.set("views", path.join(__dirname, "views"));
-// app.use(favicon(path.join(__dirname, "../public", "favicon.ico")));
-app.use(favicon(path.join(__dirname, "../public/favicon.ico")));
+app.use(favicon(path.join(__dirname, "../public", "favicon.ico")));
+// app.use(favicon(path.join(__dirname, "../public/favicon.ico")));
 
-// app.use("/public", express.static(path.join(__dirname, "../public")));
-app.use(express.static(path.join(__dirname, "../public")));
+app.use("/public", express.static(path.join(__dirname, "../public")));
+// app.use(express.static(path.join(__dirname, "../public")));
 
 // node_modules\@popperjs\core\dist\umd
 app.use(
   "/static/popperjs",
-  express.static(path.join(__dirname, "../node_modules/@popperjs/core/dist/umd"))
+  express.static(path.join(__dirname, "../../node_modules/@popperjs/core/dist/umd"))
 );
 // node_modules\bootstrap-icons\font\bootstrap-icons.css
 app.use(
   "/static/bootstrap-icons",
-  express.static(path.join(__dirname, "../node_modules/bootstrap-icons/font"))
+  express.static(path.join(__dirname, "../../node_modules/bootstrap-icons/font"))
 );
 app.use(
   "/static/bootstrap",
-  express.static(path.join(__dirname, "../node_modules/bootstrap/dist"))
+  express.static(path.join(__dirname, "../../node_modules/bootstrap/dist"))
 );
 app.use(
   "/static/coreui/icon",
-  express.static(path.join(__dirname, "../node_modules/@coreui/icons"))
+  express.static(path.join(__dirname, "../../node_modules/@coreui/icons"))
 );
 // vendors/@coreui/utils/js/coreui-utils.js
 app.use(
   "/static/coreui/utils",
-  express.static(path.join(__dirname, "../node_modules/@coreui/utils/dist/umd"))
+  express.static(path.join(__dirname, "../../node_modules/@coreui/utils/dist/umd"))
 );
 app.use(
   "/static/coreui/coreui",
-  express.static(path.join(__dirname, "../node_modules/@coreui/coreui/dist"))
+  express.static(path.join(__dirname, "../../node_modules/@coreui/coreui/dist"))
 );
 app.use(
   "/static/chart.js",
-  express.static(path.join(__dirname, "../node_modules/chart.js/dist"))
+  express.static(path.join(__dirname, "../../node_modules/chart.js/dist"))
 );
 app.use(
   "/static/fortawesome",
   express.static(
-    path.join(__dirname, "../node_modules/@fortawesome/fontawesome-free")
+    path.join(__dirname, "../../node_modules/@fortawesome/fontawesome-free")
   )
 );
 app.use(
   "/static/jquery",
-  express.static(path.join(__dirname, "../node_modules/jquery/dist"))
+  express.static(path.join(__dirname, "../../node_modules/jquery/dist"))
 );
 
 
