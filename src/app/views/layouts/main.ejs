@@ -10,7 +10,7 @@
         <%- include('../partials/sidebar') %>
       </div>
       <div
-        class=" flex-fill wrapper d-flex flex-column min-vh-100 bg-light bd-highlight">
+        class="flex-fill wrapper d-flex flex-column min-vh-100 bg-light bd-highlight">
         <header class="header header-sticky mb-4">
           <%- include('../partials/topbar') %>
         </header>
@@ -29,10 +29,9 @@
     <% } else { %>
     <%- body %>
     <script type="text/javascript">
-      // const mySession = <%= session.isAuthenticated %>;
+      const mySession = <%= session.isAuthenticated %>;
       const currentPath = window.location.pathname;
-      console.log("Current path:", currentPath);
-      if(currentPath !="/login"){
+      if(currentPath !="/login" && !mySession){
         window.location.href = "/login";
       }
     </script> <% } %>

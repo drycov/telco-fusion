@@ -24,8 +24,15 @@
                                     </span>
                                     <input id="password" class="form-control"
                                         type="password" name="password"
-                                        placeholder="<%= t('loginPage.labelPassword') 
+                                        placeholder="<%= t('loginPage.labelPassword')   
                                     %>" autocomplete="current-password">
+                                    <span
+                                        class="input-group-text" onclick="return show_hide_password(this);">
+                                        <i id="pwIcon" class="fa-regular fa-eye"></i>
+                                    </span>
+                                    <!-- <a class="nav-link" href="#" >
+                                        <i class="icon icon-lg cil-envelope-open"></i>
+                                    </a> -->
                                 </div>
                                 <div class="row">
                                     <div class="col-6">

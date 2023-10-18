@@ -1,27 +1,26 @@
 //libs import
 import bodyParser from "body-parser";
 import compression from "compression";
+import cookieParser from 'cookie-parser';
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
-import session from "express-session";
+import cookieSession from 'cookie-session';
+
 import useragent from "express-useragent";
-import http from "http";
 import i18next from "i18next";
 import Backend from "i18next-fs-backend";
 import i18nextMiddleware from "i18next-http-middleware";
 import path from "path";
 import process from "process";
 import favicon from "serve-favicon";
+
 //fuctions import
 import config from "./configs/web.config";
 import corsMiddleware from "./middlewares/corsMiddleware";
 import errorHandler from "./middlewares/errorHandler";
 import loggerMiddleware from "./middlewares/loggerMiddleware";
-import removeCommentsMiddleware from "./middlewares/removeCommentsMiddleware";
+import sessionMiddleware from "./middlewares/sessionMiddleware";
 import router from "./router";
-
-const app = express();
-app.use(compression());
 
 i18next
   .use(Backend)
@@ -35,33 +34,33 @@ i18next
     },
   });
 
-app.use(i18nextMiddleware.handle(i18next));
+const app = express();
+
 
 app.use(
-  session({
-    secret: process.env.SESSION_KEY || config.sesionKey,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      secure: true,
-    },
+  cookieSession({
+    name: 'session',
+    keys: [process.env.SESSION_KEY || config.sesionKey,], // Replace with your secret keys
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
   })
 );
 
-app.set("view engine", "ejs");
+// app.use(
+//   session({
+//     secret: process.env.SESSION_KEY || config.sesionKey,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//       secure: true,
+//     },
+//   })
+// );
 
-app.use(expressLayouts);
-app.enable("view cache");
-app.set("layout", "layouts/main");
-app.set("layout extractScripts", true);
-app.set("views", path.join(__dirname, "views"));
+app.use(cookieParser());
+app.use(useragent.express());
+app.use(compression());
 app.use(favicon(path.join(__dirname, "../public", "favicon.ico")));
-// app.use(favicon(path.join(__dirname, "../public/favicon.ico")));
-
 app.use("/public", express.static(path.join(__dirname, "../public")));
-// app.use(express.static(path.join(__dirname, "../public")));
-
-// node_modules\@popperjs\core\dist\umd
 app.use(
   "/static/popperjs",
   express.static(path.join(__dirname, "../../node_modules/@popperjs/core/dist/umd"))
@@ -102,24 +101,44 @@ app.use(
   "/static/jquery",
   express.static(path.join(__dirname, "../../node_modules/jquery/dist"))
 );
+app.use(
+  "/static/tippy.js",
+  express.static(path.join(__dirname, "../../node_modules/tippy.js/dist"))
+);
+app.use(
+  "/static/bootstrap-notify",
+  express.static(path.join(__dirname, "../../node_modules/bootstrap-notify"))
+);
+app.use(
+  "/static/select2",
+  express.static(path.join(__dirname, "../../node_modules/select2/dist"))
+);
 
-
-// node_modules/simplebar/dist/simplebar.css
+// node_modules\fontawesome-6-pro node_modules\ifontawesome.pro
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(removeCommentsMiddleware);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use(useragent.express());
+app.use(i18nextMiddleware.handle(i18next));
+
+
+
+app.set("view engine", "ejs");
+app.use(expressLayouts);
+app.enable("view cache");
+app.set("layout", "layouts/main");
+app.set("layout extractScripts", true);
+app.set("views", path.join(__dirname, "views"));
 
 app.use(loggerMiddleware);
 app.disable("x-powered-by");
 app.disable("expires");
 app.use(corsMiddleware);
+app.use(sessionMiddleware);
 
 router(app);
 
 app.use(errorHandler);
 
-const server = http.createServer(app);
-
-export default server;
+export default app;

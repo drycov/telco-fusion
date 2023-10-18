@@ -1,10 +1,52 @@
+
 <% const jsLibs = [
     '/static/jquery/jquery.min.js',
     '/static/popperjs/popper.min.js',
     '/static/bootstrap/js/bootstrap.min.js',
     '/static/coreui/coreui/js/coreui.min.js',
-    '/static/coreui/utils/index.js'
+    '/static/fortawesome/js/all.min.js',
+    '/static/coreui/utils/index.js',
+    '/static/tippy.js/tippy-bundle.umd.js',
+    '/static/bootstrap-notify/bootstrap-notify.min.js',
+    '/static/select2/js/select2.full.min.js'
+
+
 ]; %>
 <% jsLibs.forEach(jsLib => { %>
     <script src="<%= jsLib %>"></script>
 <% }); %>
+
+<script>
+    // With the above scripts loaded, you can call `tippy()` with a CSS
+    // selector and a `content` prop:
+    tippy('#myNotifyctions', {
+      content: 'My active notifications!',
+    });
+    tippy('#myTasks', {
+      content: 'My active tasks!',
+    });
+    tippy('#myMessages', {
+      content: 'My private mesages!',
+    });
+    
+    
+  </script>
+
+<script>
+    function show_hide_password(target){
+        var input = document.getElementById('password');
+        var pwIcon = document.getElementById('pwIcon');
+
+        if (input.getAttribute('type') === 'password') {
+            pwIcon.classList.remove('fa-eye');
+            pwIcon.classList.add('fa-eye-slash');
+            input.setAttribute('type', 'text');
+        } else {
+            pwIcon.classList.remove('fa-eye-slash');
+            pwIcon.classList.add('fa-eye');
+
+            input.setAttribute('type', 'password');
+        }
+        return false;
+    }
+</script>

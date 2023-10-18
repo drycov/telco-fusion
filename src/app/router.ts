@@ -1,57 +1,66 @@
 import { Express } from 'express';
-import { Session } from 'express-session';
+import cookieSession from 'cookie-session';
 
 import jwt from 'jsonwebtoken';
 import config from './configs/web.config';
-import authMiddleware from './middlewares/authMiddleware';
 import sessionMiddleware from './middlewares/sessionMiddleware';
+import authMiddleware from './middlewares/authMiddleware ';
+import aclMiddleware from './middlewares/aclMiddleware';
 
 
-interface CustomSession extends Session {
-  isAuthenticated: boolean;
-  user: any; // Replace with your user type
-  token: any;
-}
 export default function (app: Express) {
-  app.get('/', sessionMiddleware, (req, res) => {
+  app.get('/', (req, res) => {
     res.redirect('/index');
   });
 
-  app.route('/index').get(authMiddleware, sessionMiddleware, (req, res) => {
-    const session = req.session as CustomSession;
-    console.log(session);
+  app.route('/index').get(authMiddleware, aclMiddleware(['any']), (req, res) => {
+    console.log(req.session)
     res.render('pages/index', {
-      session,
       title: req.t('labelpageTitles.labelHome'),
       name: req.t('labelpageTitles.labelHome'),
       breadcrumbs: [{ label: req.t('labelpageTitles.labelHome'), url: '/' }],
     });
   });
 
-  app.route('/login').get(sessionMiddleware, (req, res) => {
-    const session = req.session as CustomSession;
-    console.log(session);
-    res.render('pages/login', { title: req.t('labelpageTitles.labelLogin'), session });
+  app.route('/login').get((req, res) => {
+    res.render('pages/login', {
+      title: req.t('labelpageTitles.labelLogin'),
+    });
   }).post((req, res) => {
     const { username, password } = req.body;
-    const session = req.session as CustomSession;
-
     if ((username === 'admin' && password === 'admin') || (username === 'user' && password === 'password')) {
       const token = jwt.sign({ username }, process.env.sesionKey || config.sesionKey, { expiresIn: '1h' });
+      res.cookie('token', token, { httpOnly: true });
 
       // Assign values to session properties
-      session.isAuthenticated = true;
-      session.token = token;
-      session.user = { username }; // Set your user object here
+      req.session!.isAuthenticated = true;
+      req.session!.token = token;
+      req.session!.user = { username }; // Set your user object here
 
+      console.log("postLOGIN: \n", res.locals.session)
       res.redirect('/index');
     } else {
       res.redirect('/login');
     }
   });
 
-  app.route('*').get(sessionMiddleware, (req, res) => {
+  app.get('/logout', (req, res) => {
+    // Clear the session (assuming you're using express-session)
+    req.session = null;
+
+    // Clear the cookie
+    res.clearCookie('token');
+
+    // Redirect or respond as needed
+    res.redirect('/login');
+  });
+
+
+
+  app.route('*').get((req, res) => {
+
     res.status(404).render('error', {
+
       title: req.t('labelpageTitles.LabelError'),
       name: req.t('labelpageTitles.LabelError'),
       breadcrumbs: [{ label: req.t('labelpageTitles.labelHome'), url: '/' }, { label: res.statusCode, url: null }],
