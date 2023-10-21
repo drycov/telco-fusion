@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <%- include('../partials/header', { title }) -%>
+
+  <body>
+    <script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  const cookieNames = ['token', 'session', 'session.sig']; // Имена куки
+
+  // Проверяем каждое имя куки
+  for (const cookieName of cookieNames) {
+    const cookieValue = document.cookie
+      .split('; ')
+      .find(row => row.startsWith(`${cookieName}=`))
+      ?.split('=')[1];
+
+    // Если куки отсутствуют или устарели, очищаем хранилище
+    if (!cookieValue) {
+      console.log(`Cookie '${cookieName}' is missing or expired. Clearing storage.`);
+      localStorage.clear(); // Очистка localStorage
+      sessionStorage.clear(); // Очистка sessionStorage
+      break;  // Прерываем проверку, так как один из куки устарел
+    }
+  }
+});
+
+    </script>
+    <% if (session.isAuthenticated) { %>
+    <div class="d-flex bd-highlight">
+      <div class="sidebar sidebar-dark d-flex bd-highlight hide"
+        id="sidebar">
+        <%- include('../partials/sidebar') %>
+      </div>
+      <div
+        class="flex-fill wrapper d-flex flex-column min-vh-100 bg-light bd-highlight">
+        <header class="header header-sticky mb-4">
+          <%- include('../partials/topbar') %>
+        </header>
+        <div class="body flex-grow-1 px-3">
+          <%- body %>
+        </div>
+      </div>
+    </div>
+    <% } else { %>
+    <%- body %>
+    <script type="text/javascript">
+      const mySession = <%= session.isAuthenticated %>;
+      const currentPath = window.location.pathname;
+      if(currentPath !="/login" && !mySession){
+        window.location.href = "/login";
+      }
+    </script> <% } %>
+    <%- include('../partials/jslibs') -%>
+  </body>
+
+</html>
