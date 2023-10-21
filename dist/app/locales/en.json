@@ -1,28 +1,34 @@
 {
-  "labelLogin": "login",
-  "labelUsername": "UserName",
-  "labelPassword": "Password",
-  "labelRemember": "Remember Me",
   "sidebarLabel": {
-    "labelReports":"Reports",
+    "labelReports": "Reports",
     "labelPorts": "Ports",
-    "labelSOA": "Accuracy statement",
+    "labelSOA": "Statement of Accuracy",
     "LabelTPC": "Port Capacity",
     "labelCustomer": "Customers",
     "labelNew": "New",
     "labelRepair": "Damage",
-    "labelRecover": "Recover",
+    "labelRecover": "Recovery",
     "labelEqipment": "Equipment",
-    "labelSW": "Switches",
+    "labelSW": "Commutations",
     "labelADSL": "ADSL",
     "labelOLT": "OLT",
     "labelWLL": "RRL",
     "labelSIP": "SIP",
     "labelTDM": "TDM"
   },
-  "labelLoginInfo": "Sign in to start your session",
-  "appName": "TTC HM",
-  "welcomeMessage": "Welcome to our website!",
+  "constLabels": {
+    "report": "Report"
+  },
+  "loginPage": {
+    "labelLogin": "Login",
+    "labelUsername": "Username",
+    "labelPassword": "Password",
+    "labelRemember": "Remember me",
+    "labelLoginInfo": "Login to start your session",
+    "labelForgot": "Forgot your password?"
+  },
+  "appName": "TTS XM",
+  "welcomeMessage": "Welcome to our site!",
   "greeting": "Hello, {{name}}!",
   "labelpageTitles": {
     "labelHome": "Dashboard",
@@ -41,12 +47,12 @@
       "text": ""
     },
     "404": {
-      "pageTitle": "Oops! Page not found.",
-      "text": "We could not find the page you were looking for."
+      "pageTitle": "Sorry, page not found.",
+      "text": "We couldn't find the page you were looking for."
     },
     "500": {
-      "pageTitle": "Oops! Something went wrong.",
-      "text": "We will work on fixing that right away."
+      "pageTitle": "Sorry, something went wrong.",
+      "text": "We'll be working on it right now."
     }
   }
 }
