@@ -25,7 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.db = void 0;
 const admin = __importStar(require("firebase-admin"));
-const serviceAccount = require('../../telcofusion-6194b-firebase-adminsdk-l8c4r-b8696d9ed3.json');
+const serviceAccount = require('../../serviceAccount.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: 'https://telcofusion-6194b-default-rtdb.firebaseio.com'
