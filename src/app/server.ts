@@ -41,7 +41,7 @@ app.use(
   cookieSession({
     name: 'session',
     keys: [process.env.SESSION_KEY || config.sesionKey,], // Replace with your secret keys
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    maxAge: 60 * 60 * 1000, // 1 hours
   })
 );
 

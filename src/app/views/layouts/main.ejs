@@ -3,6 +3,28 @@
   <%- include('../partials/header', { title }) -%>
 
   <body>
+    <script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  const cookieNames = ['token', 'session', 'session.sig']; // Имена куки
+
+  // Проверяем каждое имя куки
+  for (const cookieName of cookieNames) {
+    const cookieValue = document.cookie
+      .split('; ')
+      .find(row => row.startsWith(`${cookieName}=`))
+      ?.split('=')[1];
+
+    // Если куки отсутствуют или устарели, очищаем хранилище
+    if (!cookieValue) {
+      console.log(`Cookie '${cookieName}' is missing or expired. Clearing storage.`);
+      localStorage.clear(); // Очистка localStorage
+      sessionStorage.clear(); // Очистка sessionStorage
+      break;  // Прерываем проверку, так как один из куки устарел
+    }
+  }
+});
+
+    </script>
     <% if (session.isAuthenticated) { %>
     <div class="d-flex bd-highlight">
       <div class="sidebar sidebar-dark d-flex bd-highlight hide"
@@ -17,13 +39,6 @@
         <div class="body flex-grow-1 px-3">
           <%- body %>
         </div>
-        <footer class="footer">
-          <div><a href="https://coreui.io">CoreUI </a><a
-              href="https://coreui.io">Bootstrap
-              Admin Template</a> © 2023 creativeLabs.</div>
-          <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI
-              UI Components</a></div>
-        </footer>
       </div>
     </div>
     <% } else { %>
