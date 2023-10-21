@@ -1,21 +1,20 @@
-
+</div>
 <% const jsLibs = [
-    '/static/jquery/jquery.min.js',
-    '/static/popperjs/popper.min.js',
-    '/static/bootstrap/js/bootstrap.min.js',
-    '/static/coreui/coreui/js/coreui.min.js',
-    '/static/coreui/chartjs/js/coreui-chartjs.min.js',
-    '/static/fortawesome/js/all.min.js',
-    '/static/coreui/utils/index.js',
-    '/static/tippy.js/tippy-bundle.umd.js',
-    '/static/bootstrap-notify/bootstrap-notify.min.js',
-    '/static/select2/js/select2.full.min.js',
-    '/public/js/chart.js/chart.min.js'
-
+'/static/jquery/jquery.min.js',
+'/static/popperjs/popper.min.js',
+'/static/bootstrap/js/bootstrap.min.js',
+'/static/coreui/coreui/js/coreui.min.js',
+'/static/coreui/chartjs/js/coreui-chartjs.min.js',
+'/static/fortawesome/js/all.min.js',
+'/static/coreui/utils/index.js',
+'/static/tippy.js/tippy-bundle.umd.js',
+'/static/bootstrap-notify/bootstrap-notify.min.js',
+'/static/select2/js/select2.full.min.js',
+'/public/js/chart.js/chart.min.js'
 
 ]; %>
 <% jsLibs.forEach(jsLib => { %>
-    <script src="<%= jsLib %>"></script>
+<script src="<%= jsLib %>"></script>
 <% }); %>
 
 <script>
@@ -31,10 +30,6 @@
       content: 'My private mesages!',
     });
     
-    
-  </script>
-
-<script>
     function show_hide_password(target){
         var input = document.getElementById('password');
         var pwIcon = document.getElementById('pwIcon');
@@ -51,9 +46,7 @@
         }
         return false;
     }
-</script>
 
-<script>
 /*
      * LetterAvatar
      * 
@@ -145,9 +138,7 @@ if (typeof define === 'function' && define.amd) {
 }
 
 })(window, document);    
-</script>
 
-<script>
     function onClick(e) {
       e.preventDefault();
       grecaptcha.enterprise.ready(async () => {
@@ -158,4 +149,48 @@ if (typeof define === 'function' && define.amd) {
         // See https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
       });
     }
+
+//     $(function() {
+//   setTimeout(function(){
+//     $('#countUp').removeClass('loading');
+//   }, 2000);
+// });
+
+// Функция для форматирования чисел с разделителями тысяч
+    var formatThousandsNoRounding = function(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+// Функция для анимации чисел
+var animateNumbers = function() {
+  $('.number').each(function() {
+    var $this = $(this);
+    var countTo = $this.attr('data-count');
+
+    $({ countNum: $this.text()}).animate({
+      countNum: countTo
+    },
+    {
+      duration: 2000,
+      easing: 'linear',
+      step: function() {
+        $this.text(formatThousandsNoRounding(Math.floor(this.countNum)));
+      },
+      complete: function() {
+        $('#countUp').removeClass('loading');
+        $('#pt3').fadeIn()
+    $('#tme').fadeIn()
+        
+        $this.text(formatThousandsNoRounding(this.countNum));
+      }
+    });
+  });
+};
+
+// Запуск анимации через setTimeout после задержки (например, 1 секунда)
+setTimeout(function() {
+    $('#pt3').hide();
+    $('#tme').hide();
+  animateNumbers();
+}, 0); // 1000 миллисекунд = 1 секунда
+
     </script>
