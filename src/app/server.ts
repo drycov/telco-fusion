@@ -82,7 +82,7 @@ app.use(
 );
 app.use(
   "/static/coreui/chartjs",
-  express.static(path.join(__dirname, "../../node_modules/@coreui/chartjs"))
+  express.static(path.join(__dirname, "../../node_modules/@coreui/chartjs/dist"))
 );
 // vendors/@coreui/utils/js/coreui-utils.js
 app.use(

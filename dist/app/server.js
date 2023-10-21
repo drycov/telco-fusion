@@ -60,7 +60,7 @@ app.use("/static/popperjs", express_1.default.static(path_1.default.join(__dirna
 app.use("/static/bootstrap-icons", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/bootstrap-icons/font")));
 app.use("/static/bootstrap", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/bootstrap/dist")));
 app.use("/static/coreui/icon", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/icons")));
-app.use("/static/coreui/chartjs", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/chartjs")));
+app.use("/static/coreui/chartjs", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/chartjs/dist")));
 // vendors/@coreui/utils/js/coreui-utils.js
 app.use("/static/coreui/utils", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/utils/dist/umd")));
 app.use("/static/coreui/coreui", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/coreui/dist")));
