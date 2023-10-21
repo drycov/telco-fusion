@@ -53,7 +53,7 @@ export default function (app: Express) {
   app.route('*').get((req, res) => {
 
     res.status(404).render('error', {
-
+      error: true,
       title: req.t('labelpageTitles.LabelError'),
       name: req.t('labelpageTitles.LabelError'),
       breadcrumbs: [{ label: req.t('labelpageTitles.labelHome'), url: '/' }, { label: res.statusCode, url: null }],

@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import compression from "compression";
 import cookieParser from 'cookie-parser';
 import express from "express";
+import { Request, Response, NextFunction } from 'express';
+
 import expressLayouts from "express-ejs-layouts";
 import cookieSession from 'cookie-session';
 
@@ -80,7 +82,7 @@ app.use(
 );
 app.use(
   "/static/coreui/chartjs",
-  express.static(path.join(__dirname, "../../node_modules/@coreui/chartjs/dist"))
+  express.static(path.join(__dirname, "../../node_modules/@coreui/chartjs"))
 );
 // vendors/@coreui/utils/js/coreui-utils.js
 app.use(
@@ -135,6 +137,8 @@ app.set("layout", "layouts/main");
 app.set("layout extractScripts", true);
 app.set("views", path.join(__dirname, "views"));
 
+
+
 app.use(loggerMiddleware);
 app.disable("x-powered-by");
 app.disable("expires");
@@ -143,6 +147,21 @@ app.use(sessionMiddleware);
 
 router(app);
 
-app.use(errorHandler);
-
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error(err.stack);
+  res.status(500).render("error", {
+    error: true,
+    title: req.t("labelpageTitles.LabelError"),
+    name: req.t("labelpageTitles.LabelError"),
+    breadcrumbs: [
+      { label: req.t("labelpageTitles.labelHome"), url: "/" },
+      { label: res.statusCode.toString(), url: null },
+    ],
+    messages: {
+      pageTitle: req.t("erorMesages.500.pageTitle"),
+      status: res.statusCode,
+      text: req.t("erorMesages.500.text"),
+    },
+  });
+});
 export default app;

@@ -1,7 +1,6 @@
 {
   "sidebarLabel": {
     "labelHome": "Dashboard",
-
     "labelReports": "Reports",
     "labelReportslabels": {
       "labelPortCapacityReport": "Port Capacity",
@@ -10,8 +9,13 @@
     "labelMaps": "Maps",
     "labelMapslabels": {
       "labelCoverMap": "Coverage Map",
-      "labelDevicesMap": "Devices Map",
+      "labelDevicesMap": "Equipment Map",
       "labelPortDistributedMap": "Port Distribution Map"
+    },
+    "labelNets": "Schemes",
+    "labelNetsLabels": {
+      "labelNetPlans": "Network Plan",
+      "labelFiberPlans": "Fiber Plan"
     },
     "labelSOA": "Statement of Accuracy",
     "LabelTPC": "Port Capacity",
@@ -19,7 +23,7 @@
     "labelNew": "New",
     "labelRepair": "Repairs",
     "labelRecover": "Recovery",
-    "labelEquipment": "Equipment",
+    "labelEqipment": "Equipment",
     "labelSW": "Switches",
     "labelADSL": "ADSL",
     "labelOLT": "OLT",
@@ -48,22 +52,22 @@
     "labelReport": "Reports",
     "LabelError": "Error"
   },
-  "errorMessages": {
+  "erorMesages": {
     "401": {
-      "pageTitle": "Unauthorized",
-      "text": "You are not authorized to access this page."
+      "pageTitle": "Unauthorized Access",
+      "text": "You do not have permission to access this page."
     },
     "403": {
-      "pageTitle": "Forbidden",
+      "pageTitle": "Access Denied",
       "text": "Access to this page is forbidden."
     },
     "404": {
       "pageTitle": "Page Not Found",
-      "text": "Sorry, the page you are looking for was not found."
+      "text": "Unfortunately, we couldn't find the page you are looking for."
     },
     "500": {
       "pageTitle": "Something Went Wrong",
-      "text": "We are currently working on resolving the issue."
+      "text": "We are currently working on resolving this issue."
     }
   }
 }

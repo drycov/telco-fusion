@@ -20,7 +20,6 @@ const serve_favicon_1 = __importDefault(require("serve-favicon"));
 //fuctions import
 const web_config_1 = __importDefault(require("./configs/web.config"));
 const corsMiddleware_1 = __importDefault(require("./middlewares/corsMiddleware"));
-const errorHandler_1 = __importDefault(require("./middlewares/errorHandler"));
 const loggerMiddleware_1 = __importDefault(require("./middlewares/loggerMiddleware"));
 const sessionMiddleware_1 = __importDefault(require("./middlewares/sessionMiddleware"));
 const router_1 = __importDefault(require("./router"));
@@ -61,7 +60,7 @@ app.use("/static/popperjs", express_1.default.static(path_1.default.join(__dirna
 app.use("/static/bootstrap-icons", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/bootstrap-icons/font")));
 app.use("/static/bootstrap", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/bootstrap/dist")));
 app.use("/static/coreui/icon", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/icons")));
-app.use("/static/coreui/chartjs", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/chartjs/dist")));
+app.use("/static/coreui/chartjs", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/chartjs")));
 // vendors/@coreui/utils/js/coreui-utils.js
 app.use("/static/coreui/utils", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/utils/dist/umd")));
 app.use("/static/coreui/coreui", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/@coreui/coreui/dist")));
@@ -89,5 +88,21 @@ app.disable("expires");
 app.use(corsMiddleware_1.default);
 app.use(sessionMiddleware_1.default);
 (0, router_1.default)(app);
-app.use(errorHandler_1.default);
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).render("error", {
+        error: true,
+        title: req.t("labelpageTitles.LabelError"),
+        name: req.t("labelpageTitles.LabelError"),
+        breadcrumbs: [
+            { label: req.t("labelpageTitles.labelHome"), url: "/" },
+            { label: res.statusCode.toString(), url: null },
+        ],
+        messages: {
+            pageTitle: req.t("erorMesages.500.pageTitle"),
+            status: res.statusCode,
+            text: req.t("erorMesages.500.text"),
+        },
+    });
+});
 exports.default = app;

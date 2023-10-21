@@ -8,7 +8,7 @@
                   <i class="nav-icon cil-speedometer"></i>
                   <%= t('sidebarLabel.labelHome') %><span
                         class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
-      <li class="nav-title"><%= t('sidebarLabel.labelMaps')%></li>
+      <!-- <li class="nav-title"><%= t('sidebarLabel.labelMaps')%></li> -->
       <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                   <i class="nav-icon cil-location-pin"></i>
                   <%= t('sidebarLabel.labelMaps')%></a>
@@ -27,7 +27,7 @@
                               <%= t('sidebarLabel.labelMapslabels.labelPortDistributedMap')%></a></li>
             </ul>
       </li>
-      <li class="nav-title"> <%= t('sidebarLabel.labelReports')%></li>
+      <!-- <li class="nav-title"> <%= t('sidebarLabel.labelReports')%></li> -->
       <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                   <i class="nav-icon cib-tableau"></i>
                   <%= t('sidebarLabel.labelReports')%></a>
@@ -40,6 +40,21 @@
                               href="base/accordion.html"><span
                                     class="nav-icon cil-braille"></span>
                               <%= t('sidebarLabel.labelReportslabels.labelActiveCapacityReport')%></a></li>
+            </ul>
+      </li>
+      <!-- <li class="nav-title"><%= t('sidebarLabel.labelNets')%></li> -->
+      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+                  <i class="nav-icon cil-fingerprint"></i>
+                  <%= t('sidebarLabel.labelNets')%></a>
+            <ul class="nav-group-items">
+                  <li class="nav-item"><a class="nav-link"
+                              href="base/accordion.html"><span
+                                    class="nav-icon cib-netlify"></span>
+                              <%= t('sidebarLabel.labelNetsLabels.labelNetPlans')%></a></li>
+                  <li class="nav-item"><a class="nav-link"
+                              href="base/accordion.html"><span
+                                    class="nav-icon cib-hubspot"></span>
+                              <%= t('sidebarLabel.labelNetsLabels.labelFiberPlans')%></a></li>
             </ul>
       </li>
 </ul>

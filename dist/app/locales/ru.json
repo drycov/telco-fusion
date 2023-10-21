@@ -12,6 +12,11 @@
       "labelDevicesMap": "Карта оборудования",
       "labelPortDistributedMap": "Распределение портов"
     },
+    "labelNets": "Схемы",
+    "labelNetsLabels": {
+      "labelNetPlans": "Схема сети",
+      "labelFiberPlans": "Схема оптики"
+    },
     "labelSOA": "Заявление о точности",
     "LabelTPC": "Емкость портов",
     "labelCustomer": "Клиенты",
