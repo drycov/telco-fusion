@@ -45,6 +45,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@coreui/chartjs": "^3.1.2",
     "@coreui/coreui": "^4.2.6",
     "@coreui/icons": "^3.0.1",
     "@coreui/utils": "^2.0.2",

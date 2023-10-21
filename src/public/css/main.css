@@ -16,3 +16,7 @@ pre {
 .round {
   border-radius: 50%;
 }
+
+#brand-text{
+  text-shadow: 4px 4px 4px #aaa;
+}

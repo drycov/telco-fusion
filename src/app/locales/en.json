@@ -1,18 +1,29 @@
 {
   "sidebarLabel": {
+    "labelHome": "Dashboard",
+
     "labelReports": "Reports",
-    "labelPorts": "Ports",
+    "labelReportslabels": {
+      "labelPortCapacityReport": "Port Capacity",
+      "labelActiveCapacityReport": "Active Capacity"
+    },
+    "labelMaps": "Maps",
+    "labelMapslabels": {
+      "labelCoverMap": "Coverage Map",
+      "labelDevicesMap": "Devices Map",
+      "labelPortDistributedMap": "Port Distribution Map"
+    },
     "labelSOA": "Statement of Accuracy",
     "LabelTPC": "Port Capacity",
     "labelCustomer": "Customers",
     "labelNew": "New",
-    "labelRepair": "Damage",
+    "labelRepair": "Repairs",
     "labelRecover": "Recovery",
-    "labelEqipment": "Equipment",
-    "labelSW": "Commutations",
+    "labelEquipment": "Equipment",
+    "labelSW": "Switches",
     "labelADSL": "ADSL",
     "labelOLT": "OLT",
-    "labelWLL": "RRL",
+    "labelWLL": "WLL",
     "labelSIP": "SIP",
     "labelTDM": "TDM"
   },
@@ -24,11 +35,11 @@
     "labelUsername": "Username",
     "labelPassword": "Password",
     "labelRemember": "Remember me",
-    "labelLoginInfo": "Login to start your session",
-    "labelForgot": "Forgot your password?"
+    "labelLoginInfo": "Log in to start your session",
+    "labelForgot": "Forgot Password?"
   },
-  "appName": "TTS XM",
-  "welcomeMessage": "Welcome to our site!",
+  "appName": "TTC HM",
+  "welcomeMessage": "Welcome to our website!",
   "greeting": "Hello, {{name}}!",
   "labelpageTitles": {
     "labelHome": "Dashboard",
@@ -37,22 +48,22 @@
     "labelReport": "Reports",
     "LabelError": "Error"
   },
-  "erorMesages": {
+  "errorMessages": {
     "401": {
-      "pageTitle": "",
-      "text": ""
+      "pageTitle": "Unauthorized",
+      "text": "You are not authorized to access this page."
     },
     "403": {
-      "pageTitle": "",
-      "text": ""
+      "pageTitle": "Forbidden",
+      "text": "Access to this page is forbidden."
     },
     "404": {
-      "pageTitle": "Sorry, page not found.",
-      "text": "We couldn't find the page you were looking for."
+      "pageTitle": "Page Not Found",
+      "text": "Sorry, the page you are looking for was not found."
     },
     "500": {
-      "pageTitle": "Sorry, something went wrong.",
-      "text": "We'll be working on it right now."
+      "pageTitle": "Something Went Wrong",
+      "text": "We are currently working on resolving the issue."
     }
   }
 }

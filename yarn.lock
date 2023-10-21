@@ -19,6 +19,14 @@
   resolved "https://registry.npmjs.org/@colors/colors/-/colors-1.6.0.tgz"
   integrity sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==
 
+"@coreui/chartjs@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.npmjs.org/@coreui/chartjs/-/chartjs-3.1.2.tgz"
+  integrity sha512-d3MGk3KZNAt29VRKP/XYiGmT56KTqtuOhLEg5HNwb7P7ZmEgOJoHxFHVCVE4I36hfgQCjZZVknsuk2ZTfF/2fw==
+  dependencies:
+    "@coreui/coreui" "^4.2.6"
+    chart.js "^3.9.1"
+
 "@coreui/coreui@^4.2.6":
   version "4.2.6"
   resolved "https://registry.npmjs.org/@coreui/coreui/-/coreui-4.2.6.tgz"
@@ -2223,6 +2231,11 @@ chalk@^4.0.2:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chart.js@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.npmjs.org/chart.js/-/chart.js-3.9.1.tgz"
+  integrity sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==
 
 chart.js@^4.4.0:
   version "4.4.0"

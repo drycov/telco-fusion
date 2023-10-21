@@ -11,21 +11,35 @@
   <meta name="theme-color" content="#ffffff" />
   <meta name="msapplication-TileColor" content="#ffffff" />
   <link rel="manifest" href="/public/manifest.json">
-
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
   <title><%= typeof title !== 'undefined' ? title : 'default' %></title>
+  <% const gFonts = [
+  'Roboto',
+  'Oxygen',
+  'Ubuntu',
+  'Cantarell',
+  'Fira Sans'
+  ];
+  %>
+  <% gFonts.forEach(gFont => {
+  %>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=<%= gFont %>">
+  <% }); %>
 
   <% const cssFiles = [
   '/public/css/main.css',
   '/static/bootstrap/css/bootstrap.min.css',
   '/static/fortawesome/css/all.min.css',
   '/static/coreui/coreui/css/coreui.min.css',
+  '/static/coreui/chartjs/css/coreui-chartjs.min.css',
   '/static/coreui/icon/css/all.min.css',
   '/static/tippy.js/tippy.css',
   '/static/select2/css/select2.min.css'
   ];
   %>
+
   <% cssFiles.forEach(cssFile => {
   %>
   <link rel="stylesheet" type="text/css" href="<%= cssFile %>" />
@@ -34,6 +48,8 @@
   <style>
 
   </style>
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfnYbsoAAAAAL0cjT6_3RFSQvxPWABaFFGsUeBx" async defer></script>
+  <script
+    src="https://www.google.com/recaptcha/enterprise.js?render=6LfnYbsoAAAAAL0cjT6_3RFSQvxPWABaFFGsUeBx"
+    async defer></script>
 
 </head>
