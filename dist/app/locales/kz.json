@@ -1,0 +1,87 @@
+{
+    "sidebarLabel": {
+      "labelHome": "Бағдарлама",
+      "labelReports": "Есептер",
+      "labelReportslabels": {
+        "labelPortCapacityReport": "Порттық мүлдемет",
+        "labelActiveCapacityReport": "Әрекетті мүлдемет"
+      },
+      "labelMaps": "Картаға",
+      "labelMapslabels": {
+        "labelCoverMap": "Ауру картасы",
+        "labelDevicesMap": "Құрылғы картасы",
+        "labelPortDistributedMap": "Порттарды бөлу"
+      },
+      "labelNets": "Желілер",
+      "labelNetsLabels": {
+        "labelNetPlans": "Желі жоспары",
+        "labelFiberPlans": "Оптика жоспары"
+      },
+      "labelData": "Ақпараттар",
+      "labelDataLabels": {
+        "labelDataDevices": "Құрылғы",
+        "labelDataLocations": "Орналасу орны",
+        "labelDataAddreses": "Мекенжайлар",
+        "labelDataBuildins": "Үйлер",
+        "labelDataCityes": "Қалалар",
+        "labelDataTypes": "Түрлер",
+        "labelDataTechnologys": "Технологиялар",
+        "labelDataCables": "Кабельдер",
+        "labelDataFDU": "ODF",
+        "labelDataFDM": "Муфты"
+      },
+      "labelIPAM": "IPAM",
+      "labelSOA": "Точықтығы туралы анықтама",
+      "LabelTPC": "Порттық мүлдемет",
+      "labelCustomer": "Терігешілер",
+      "labelNew": "Жаңа",
+      "labelRepair": "Жамандату",
+      "labelRecover": "Қалпына келтіру",
+      "labelEqipment": "Құрылғылар",
+      "labelSW": "Шығындылар",
+      "labelADSL": "ADSL",
+      "labelOLT": "OLT",
+      "labelWLL": "Басқа жоқтардың соңғы кілометрі",
+      "labelSIP": "SIP",
+      "labelTDM": "TDM"
+    },
+    "constLabels": {
+      "report": "Есеп"
+    },
+    "loginPage": {
+      "labelLogin": "Кіру",
+      "labelUsername": "Қолданушы аты",
+      "labelPassword": "Құпия сөз",
+      "labelRemember": "Есте сақтау",
+      "labelLoginInfo": "Системаға кіру үшін кіру",
+      "labelForgot": "Құпия сөзді ұмыттыңыз ба?"
+    },
+    "appName": "ТТС ХМ",
+    "welcomeMessage": "Біздің веб-сайтқа қош келдіңіз!",
+    "greeting": "Сәлеметсіздер, {{name}}!",
+    "labelpageTitles": {
+      "labelHome": "Бағдарлама",
+      "labelLogin": "Кіру",
+      "labelMap": "Карта",
+      "labelReport": "Есептер",
+      "LabelError": "Қате"
+    },
+    "erorMesages": {
+      "401": {
+        "pageTitle": "Атақты қол жеткізу мүмкіндігі жоқ",
+        "text": "Сізге осы бетке қатысу мүмкіндігі жоқ."
+      },
+      "403": {
+        "pageTitle": "Қатынасуға рұқсат жоқ",
+        "text": "Сіз бұл бетке рұқсат жоқ."
+      },
+      "404": {
+        "pageTitle": "Бет табылмады",
+        "text": "Кешіріңіз, іздегіңіз бетті таба алмадыңыз."
+      },
+      "500": {
+        "pageTitle": "Бірдеу тапсырмалы емес",
+        "text": "Қазіргі уақытта біз осы мәселені шешу жұмысын істейміз."
+      }
+    }
+  }

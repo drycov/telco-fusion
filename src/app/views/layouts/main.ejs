@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="<%= i18n.getLocale() %>">
   <%- include('../partials/header', { title }) -%>
 
   <body>
@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <%- body %>
         <% } %>
     <%- include('../partials/jslibs') -%>
+
+    
   </body>
 
 </html>

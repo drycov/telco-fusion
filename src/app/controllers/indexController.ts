@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 const getIndexPage = (req: Request, res: Response) => {
-    const breadcrumbs = [{ label: req.t('labelpageTitles.labelHome'), url: '/' }];
+    const breadcrumbs = [{ label: req.__('labelpageTitles.labelHome'), url: '/' }];
     const htmlData = `<div class="card mb-4">
     <div class="card-body p-4">
       <div class="row">
@@ -19,8 +19,8 @@ const getIndexPage = (req: Request, res: Response) => {
 
     // Ваш код для обработки запроса на страницу "index" здесь
     res.render('pages/index', {
-        title: req.t('labelpageTitles.labelHome'),
-        name: req.t('labelpageTitles.labelHome'),
+        title: req.__('labelpageTitles.labelHome'),
+        name: req.__('labelpageTitles.labelHome'),
         breadcrumbs: breadcrumbs,
         htmlData
         // Другие данные, которые нужно передать в представление

@@ -10,7 +10,7 @@ const web_config_1 = __importDefault(require("../configs/web.config"));
 const getLogin = (req, res) => {
     // Ваш код для обработки запроса на страницу "index" здесь
     res.render('pages/login', {
-        title: req.t('labelpageTitles.labelLogin'),
+        title: req.__('labelpageTitles.labelLogin'),
     });
 };
 const postLogin = async (req, res) => {
@@ -33,6 +33,10 @@ const postLogin = async (req, res) => {
             if (err)
                 throw err;
             res.cookie('token', token, { httpOnly: true, secure: true });
+            // const detectedLng = req.language; // Это свойство будет доступно благодаря i18nextMiddleware
+            // if (req.session) {
+            //     req.session.lng = detectedLng;
+            // }
             req.session.isAuthenticated = true;
             req.session.token = token;
             req.session.user = { username }; // Set your user object here
@@ -43,16 +47,16 @@ const postLogin = async (req, res) => {
         console.error('Error logging in:', error);
         res.status(500).render("error", {
             error: true,
-            title: req.t("labelpageTitles.LabelError"),
-            name: req.t("labelpageTitles.LabelError"),
+            title: req.__("labelpageTitles.LabelError"),
+            name: req.__("labelpageTitles.LabelError"),
             breadcrumbs: [
-                { label: req.t("labelpageTitles.labelHome"), url: "/" },
+                { label: req.__("labelpageTitles.labelHome"), url: "/" },
                 { label: res.statusCode.toString(), url: null },
             ],
             messages: {
-                pageTitle: req.t("erorMesages.500.pageTitle"),
+                pageTitle: req.__("erorMesages.500.pageTitle"),
                 status: res.statusCode,
-                text: req.t("erorMesages.500.text"),
+                text: req.__("erorMesages.500.text"),
             },
         });
     }

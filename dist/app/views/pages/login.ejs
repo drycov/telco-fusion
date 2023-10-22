@@ -5,8 +5,8 @@
                 <div class="card-group d-block d-md-flex row">
                     <div class="card col-md-7 p-4 mb-0">
                         <div class="card-body">
-                            <h1><%= t('loginPage.labelLogin')%></h1>
-                            <p class="text-medium-emphasis"><%= t('loginPage.labelLoginInfo')
+                            <h1><%= __('loginPage.labelLogin')%></h1>
+                            <p class="text-medium-emphasis"><%= __('loginPage.labelLoginInfo')
                                 %></p>
                             <form id="loginForm" action="/login" method="post">
                                 <div class="input-group mb-3"><span
@@ -15,7 +15,7 @@
                                     </span>
                                     <input id="username" class="form-control"
                                         type="text" name="username"
-                                        placeholder="<%= t('loginPage.labelUsername')
+                                        placeholder="<%= __('loginPage.labelUsername')
                                     %>" autocomplete="username">
                                 </div>
                                 <div class="input-group mb-4"><span
@@ -24,7 +24,7 @@
                                     </span>
                                     <input id="password" class="form-control"
                                         type="password" name="password"
-                                        placeholder="<%= t('loginPage.labelPassword')   
+                                        placeholder="<%= __('loginPage.labelPassword')   
                                     %>" autocomplete="current-password">
                                     <span
                                         class="input-group-text" onclick="return show_hide_password(this);">
@@ -38,12 +38,12 @@
                                     <div class="col-6">
                                         <button class="btn btn-primary px-4"
                                             type="submit" id="loginButton"><%=
-                                            t('loginPage.labelLogin')%></button>
+                                            __('loginPage.labelLogin')%></button>
                                     </div>
                                     <div class="col-6 text-end">
                                         <button class="btn btn-link px-0"
                                             type="button" id="forgotButton"><%=
-                                            t('loginPage.labelForgot')%></button>
+                                            __('loginPage.labelForgot')%></button>
                                     </div>
                                 </div>
                             </form>
