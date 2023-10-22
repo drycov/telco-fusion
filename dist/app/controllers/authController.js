@@ -41,7 +41,20 @@ const postLogin = async (req, res) => {
     }
     catch (error) {
         console.error('Error logging in:', error);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).render("error", {
+            error: true,
+            title: req.t("labelpageTitles.LabelError"),
+            name: req.t("labelpageTitles.LabelError"),
+            breadcrumbs: [
+                { label: req.t("labelpageTitles.labelHome"), url: "/" },
+                { label: res.statusCode.toString(), url: null },
+            ],
+            messages: {
+                pageTitle: req.t("erorMesages.500.pageTitle"),
+                status: res.statusCode,
+                text: req.t("erorMesages.500.text"),
+            },
+        });
     }
 };
 exports.default = { getLogin, postLogin };
