@@ -23,7 +23,7 @@ import router from "./router";
 const app = express();
 i18n.configure({
   locales: ['gb', 'ua', 'kz', 'ru'],
-  defaultLocale: 'gb',
+  defaultLocale: 'ru',
   directory: path.join(__dirname, 'locales'),
   objectNotation: true, // Allows nested translation objects
   updateFiles: false, // Don't save missing translations to files
@@ -51,7 +51,7 @@ const staticResourceFolders = [
   "@coreui/icons",
   "@coreui/chartjs/dist",
   "@coreui/coreui/dist",
-  "@coreui/utils/dist/umd",
+  // "@coreui/utils/dist/umd",
   "chart.js/dist",
   "@fortawesome/fontawesome-free",
   "jquery/dist",
@@ -116,7 +116,7 @@ app.use((req: Request, res: Response, next: NextFunction)  => {
     '/static/@coreui/coreui/js/coreui.min.js',
     '/static/@coreui/chartjs/js/coreui-chartjs.min.js',
     '/static/@fortawesome/fontawesome-free/js/all.min.js',
-    '/static/@coreui/utils/umd/index.js',
+    // '/static/@coreui/utils/umd/index.js',
     '/static/tippy.js/tippy-bundle.umd.js',
     '/static/bootstrap-notify/bootstrap-notify.min.js',
     '/static/select2/js/select2.full.min.js',
@@ -132,16 +132,16 @@ app.use((req: Request, res: Response, next: NextFunction)  => {
 
 app.use((req: Request, res: Response, next: NextFunction)  => {
   if (req.session!.lang) {
-    console.log(i18n.getLocale(req))
+    console.log(req.path, i18n.getLocale(req))
     i18n.removeLocale(i18n.getLocale(req))
 
     // Установите язык из сессии в i18n
     i18n.setLocale(req, req.session!.lang);
-    console.log(i18n.getLocale(req))
+    console.log(req.path, i18n.getLocale(req))
 
   } else {
     i18n.setLocale(req, 'en');
-    console.log(i18n.getLocale())
+    console.log(req.path, i18n.getLocale(req))
   }
   next();
 });

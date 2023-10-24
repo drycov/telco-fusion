@@ -6,7 +6,7 @@ const sessionMiddleware = (req, res, next) => {
         user: req.session.user || null,
         lang: req.session.lang || null
     };
-    console.log(req.session.lang);
+    console.log(req.path, req.session.lang);
     next();
 };
 exports.default = sessionMiddleware;

@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const i18n_1 = __importDefault(require("i18n"));
 const authController_1 = __importDefault(require("./controllers/authController"));
 const indexController_1 = __importDefault(require("./controllers/indexController"));
 const usersController_1 = require("./controllers/usersController");
@@ -17,7 +18,7 @@ function default_1(app) {
     app.get('/setLanguage/:lng', (req, res) => {
         const { lng } = req.params;
         req.session.lang = lng;
-        // i18n.setLocale(req, lang); // Set the language in the request
+        i18n_1.default.setLocale(req, lng); // Set the language in the request
         res.redirect('back'); // Redirect back to the previous page
     });
     app.get('/logout', (req, res) => {

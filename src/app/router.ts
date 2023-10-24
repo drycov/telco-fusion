@@ -16,9 +16,9 @@ export default function (app: Express) {
   app.route('/login').get(authController.getLogin).post(authController.postLogin);
   app.get('/setLanguage/:lng', (req, res) => {
     const { lng  } = req.params;
-    req.session!.lang = lng ;
+    req.session!.lang = lng;
 
-    // i18n.setLocale(req, lang); // Set the language in the request
+    i18n.setLocale(req, lng); // Set the language in the request
     res.redirect('back'); // Redirect back to the previous page
   });
 
