@@ -26,12 +26,12 @@ i18n_1.default.configure({
     locales: ['gb', 'ua', 'kz', 'ru'],
     defaultLocale: 'ru',
     directory: path_1.default.join(__dirname, 'locales'),
-    objectNotation: true,
+    objectNotation: true, // Allows nested translation objects
     updateFiles: false, // Don't save missing translations to files
 });
 app.use((0, cookie_session_1.default)({
     name: 'session',
-    keys: [process_1.default.env.SESSION_KEY || web_config_1.default.sesionKey,],
+    keys: [process_1.default.env.SESSION_KEY || web_config_1.default.sesionKey,], // Replace with your secret keys
     maxAge: 60 * 60 * 1000, // 1 hours
 }));
 app.use((0, cookie_parser_1.default)());
