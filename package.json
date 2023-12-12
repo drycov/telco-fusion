@@ -11,7 +11,8 @@
     "build": "rimraf dist && tsc && npm run copy",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
-    "copy": "copyfiles -u 1 src/app/views/**/* dist/ && copyfiles -u 1 src/public/**/* dist/ && copyfiles -u 1 src/app/locales/**/* dist/ && copyfiles -u 1 src/serviceAccount.json dist/",
+    "copy":"cp -rf src/public/* dist/public/ && cp -rf src/app/locales/* dist/app/locales/ && cp -rf src/serviceAccount.json dist/",
+    "copy_NW": "copyfiles -u 1 src/app/views/**/* dist/ && copyfiles -u 1 src/public/**/* dist/ && copyfiles -u 1 src/app/locales/**/* dist/ && copyfiles -u 1 src/serviceAccount.json dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pre-commit": [
@@ -19,6 +20,9 @@
     "build",
     "add-build"
   ],
+  "repository": {
+    "url": "https://github.com/drycov/telco-fusion.git"
+  },
   "author": "d.rykov",
   "license": "Apache-2.0",
   "devDependencies": {
