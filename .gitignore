@@ -6,8 +6,6 @@ node_modules/*
 package-lock.json
 
 # Custom Sessions Directory
-sessions/*
-logs/*
 dist/*
 # Ignored files
 .DS_Store
@@ -18,4 +16,3 @@ dist/*
 *.pid
 *.prof
 *.snap
-node_modules
